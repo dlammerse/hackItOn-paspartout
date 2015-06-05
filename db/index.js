@@ -33,7 +33,7 @@ module.exports.Query = function Query(querystring, callback, res)
 		}
 		else
 		{
-			console.log('Error while performing Query.');
+			console.log('Error while performing Query: ' + querystring);
 			var empty = [];
 			callback(res, empty);
 		}
