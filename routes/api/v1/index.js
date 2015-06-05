@@ -11,4 +11,8 @@ router.get('/', function(req, res, next)
 var access = require('./access');
 router.use('/access', access);
 
+// user
+var user = require('./user');
+router.use('/user', user);
+
 module.exports = router;
