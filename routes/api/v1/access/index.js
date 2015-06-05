@@ -21,8 +21,8 @@ router.get('/', function(req, res){
 	var user_id = req.query.user_id;
 	
 	var stmt = 'SELECT * FROM subscriptions WHERE comp_id = ' + company_id + ' and user_id = ' + user_id;
-	
-	db.Query(stmt, RespondAutorisation, res);
+
+	db.SelectQuery(stmt, RespondAutorisation, res);
 });
 
 router.post('/', function(req, res)

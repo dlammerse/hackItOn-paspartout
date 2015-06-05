@@ -1,0 +1,61 @@
+html
+{
+	font-size: 15px;
+	margin:0px;
+	padding:0px;
+	top:0px;
+}
+
+body
+{
+	font-family: 'Helvetica', 'Arial', sans-serif;
+	font-size: 0.8rem;
+	color:#000;
+}
+
+/* HEADER */
+#header
+{
+	background-color:#ff6600;
+	color:#FFF;
+}
+
+/* CONTENT */
+#content
+{
+	height:100%;
+	width:400px;
+}
+
+#green
+{
+	background-color:#006600;
+}
+
+#red
+{
+	background-color:#CC0000;
+}
+
+#qr-canvas
+{
+	display:none;
+}
+
+/* FOOTER */
+#footer
+{
+	color:#B2B2B2;
+}
+
+.footer-item
+{
+	padding:1rem;
+	color:#999;
+}
+
+/* GENERAL */
+h1, h2
+{
+	margin:0px;
+}

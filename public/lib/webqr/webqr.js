@@ -108,6 +108,9 @@ function read(a)
         html+="<a target='_blank' href='"+a+"'>"+a+"</a><br>";
     html+="<b>"+htmlEntities(a)+"</b><br><br>";
     document.getElementById("result").innerHTML=html;
+	
+	//custom code
+	angular.element(document.getElementById('html-root')).scope().Authorize();
 }	
 
 function isCanvasSupported(){
