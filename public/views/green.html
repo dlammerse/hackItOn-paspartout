@@ -1,0 +1,10 @@
+<div id="projects-container">
+	<div class="project detail" ng-repeat="project in projects">
+		<a ng-href="#projects/a{{project.id}}">
+			<h2>{{project.name}}</h2>
+			
+			<p>{{project.description}}</p>
+			<p>Members: {{project.members.length}}</p>
+		</a>
+	</div>
+</div>

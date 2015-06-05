@@ -6,7 +6,7 @@ var db = require(app_root + '/db');
 router.get('/', function(req, res, next)
 {
 	var stmt = 'SELECT * FROM users';
-	db.Query(stmt, CallbackQueryResults, res);
+	db.SelectQuery(stmt, CallbackQueryResults, res);
 });
 
 // get user
@@ -15,7 +15,7 @@ router.get('/:user_id', function(req, res, next)
 	var user_id = req.params.user_id;
 	var stmt = 'SELECT * FROM users where user_id = ' + user_id;
 	
-	db.Query(stmt, CallbackQueryResults, res);
+	db.SelectQuery(stmt, CallbackQueryResults, res);
 });
 
 // get all companies of user
@@ -24,10 +24,21 @@ router.get('/:user_id/company', function(req, res, next)
 	var user_id = req.params.user_id;
 	var stmt = 'SELECT * FROM companies where comp_id in ( SELECT comp_id FROM subscriptions where user_id = ' + user_id + ' )';
 	
-	db.Query(stmt, CallbackQueryResults, res);
+	db.SelectQuery(stmt, CallbackQueryResults, res);
 });
 
-//Generic return results of database query
+// Add subscription to user
+router.put('/:user_id/:company_id', function(req, res, next)
+{
+	var user_id = req.params.user_id;
+	var company_id = req.params.company_id;
+	
+	var stmt = 'INSERT INTO subscriptions (user_id, comp_id) VALUES(' + user_id + ',' + company_id + ')';
+	
+	db.InsertQuery(stmt, CallbackInsertSucceeded, res);
+});
+
+//Callback return results of database query
 function CallbackQueryResults(res, rows)
 {
 	var result = [];
@@ -37,6 +48,12 @@ function CallbackQueryResults(res, rows)
     }
 	
 	res.json(result);
+}
+
+//callback insert data in db
+function CallbackInsertSucceeded(res, hasSucceeded)
+{	
+	res.json({succeeded: hasSucceeded});
 }
 
 module.exports = router;

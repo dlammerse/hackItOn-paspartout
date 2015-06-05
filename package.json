@@ -6,11 +6,12 @@
     "start": "node app.js"
   },
   "dependencies": {
+    "body-parser": "1.12.4",
     "cfenv": "1.0.x",
     "express": "4.12.x",
+    "jsqrcode": "0.0.6",
     "mysql": "2.7.0",
-    "path": "0.11.14",
-	"body-parser": "1.12.4"
+    "path": "0.11.14"
   },
   "repository": {}
 }
