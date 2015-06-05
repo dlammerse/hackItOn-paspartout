@@ -11,8 +11,8 @@ app.controller('BaseController', ['$scope', '$http', '$location', '$interval','$
         "id":"1"
 	};
 	
-	$scope.Authorize = function() {
-		$http.get('/api/v1/access', {params: {user_id: $scope.user.id,company_id: $scope.merchant.id}}).
+	$scope.Authorize = function(user_id) {
+		$http.get('/api/v1/access', {params: {user_id: user_id,company_id: $scope.merchant.id}}).
 			success(function(data, status, headers, config)
 			{
 				console.log('api access succesfully returned: ' + data.access);

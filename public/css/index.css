@@ -4,6 +4,7 @@ html
 	margin:0px;
 	padding:0px;
 	top:0px;
+	width:100%;
 }
 
 body
@@ -11,6 +12,7 @@ body
 	font-family: 'Helvetica', 'Arial', sans-serif;
 	font-size: 0.8rem;
 	color:#000;
+	width:100%;
 }
 
 /* HEADER */
@@ -23,8 +25,13 @@ body
 /* CONTENT */
 #content
 {
-	height:100%;
-	width:400px;
+	width:100%;
+	height:400px;
+}
+
+.ng-scope
+{
+	height:400px;
 }
 
 #green

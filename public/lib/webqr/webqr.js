@@ -110,7 +110,7 @@ function read(a)
     document.getElementById("result").innerHTML=html;
 	
 	//custom code
-	angular.element(document.getElementById('html-root')).scope().Authorize();
+	angular.element(document.getElementById('html-root')).scope().Authorize(1);
 }	
 
 function isCanvasSupported(){
