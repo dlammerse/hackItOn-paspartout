@@ -34,6 +34,8 @@ module.exports.Query = function Query(querystring, callback, res)
 		else
 		{
 			console.log('Error while performing Query.');
+			var empty = [];
+			callback(res, empty);
 		}
 	});
 	
