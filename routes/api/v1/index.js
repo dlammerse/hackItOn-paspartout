@@ -8,7 +8,7 @@ router.get('/', function(req, res, next)
 });
 
 // access
-var room = require('./access');
-router.use('/access', room);
+var access = require('./access');
+router.use('/access', access);
 
 module.exports = router;
