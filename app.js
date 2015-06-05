@@ -12,6 +12,9 @@ var express = require('express');
 // for more info, see: https://www.npmjs.com/package/cfenv
 var cfenv = require('cfenv');
 
+// setup root directory
+global.app_root = path.dirname(require.main.filename) + '/../';
+
 var db = require('./db');
 db.Connect();
 
