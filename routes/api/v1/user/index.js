@@ -27,6 +27,19 @@ router.get('/:user_id/company', function(req, res, next)
 	db.SelectQuery(stmt, CallbackQueryResults, res);
 });
 
+// get all companies of user
+router.get('/:user_id/getallcompanies', function(req, res, next)
+{
+	var user_id = req.params.user_id;
+	//var stmt = 'SELECT DISTINCT c.comp_id, name, photo, "Actief" as "status" , "' + user_id + '" as "user_id" FROM companies where c.comp_id in ( SELECT comp_id FROM subscriptions where user_id = ' + user_id + ' ) UNION SELECT DISTINCT c.comp_id, name, photo, "Toevoegen" as "status" , "' + user_id + '" as "user_id" FROM companies where c.comp_id NOT in ( SELECT comp_id FROM subscriptions where user_id = ' + user_id + ' )';
+	//var stmt = 'SELECT DISTINCT c.comp_id, name, photo, "Actief" as "status" , "' + user_id + '" as "user_id" FROM companies c where c.comp_id in ( SELECT comp_id FROM subscriptions where user_id = ' + user_id + ' )';
+		var stmt = 'SELECT DISTINCT c.comp_id, name, photo, "Actief" as "status" , "' + user_id + '" as "user_id" FROM companies c where c.comp_id in ( SELECT comp_id FROM subscriptions where user_id = ' + user_id + ' ) UNION SELECT DISTINCT c.comp_id, name, photo, "Toevoegen" as "status" , "' + user_id + '" as "user_id" FROM companies c where c.comp_id not in ( SELECT comp_id FROM subscriptions where user_id = ' + user_id + ' )';
+	
+		//var stmt = 'SELECT * FROM companies where comp_id in ( SELECT comp_id FROM subscriptions where user_id = ' + user_id + ' )';
+
+	db.SelectQuery(stmt, CallbackQueryResults, res);
+});
+
 // Add subscription to user
 router.put('/:user_id/:company_id', function(req, res, next)
 {

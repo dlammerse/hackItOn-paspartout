@@ -3,7 +3,7 @@ var app = angular.module('app', ['ngRoute']);
 app.controller('BaseController', ['$scope', '$http', '$location', '$interval','$anchorScroll', function($scope, $http, $location, $interval, $anchorScroll)
 {
 	$scope.merchant = {
-        "id":"1",
+        "id":"2",
 		"name":"Sportschool"
 	};
 	
@@ -11,8 +11,8 @@ app.controller('BaseController', ['$scope', '$http', '$location', '$interval','$
         "id":"1"
 	};
 	
-	$scope.Authorize = function(user_id) {
-		$http.get('/api/v1/access', {params: {user_id: user_id,company_id: $scope.merchant.id}}).
+	$scope.Authorize = function(user_id2) {
+		$http.get('/api/v1/access', {params: {user_id: user_id2,company_id: $scope.merchant.id}}).
 			success(function(data, status, headers, config)
 			{
 				console.log('api access succesfully returned: ' + data.access);
@@ -21,20 +21,13 @@ app.controller('BaseController', ['$scope', '$http', '$location', '$interval','$
 				if(data.access == 1)
 				{
 					$location.url('/green');
-					setTimeout('', 5000);
 
-
-						
-					$location.url('');	
 					}
 				
 				else
 				{
 					$location.url('/red');
-					setTimeout('', 5000);
 
-
-					$location.url('');	
 					
 				}
 			}).

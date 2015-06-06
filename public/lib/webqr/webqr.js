@@ -114,13 +114,7 @@ function read(a)
 	
 	
 	//autorization
-	var user_id = a;
-	var client = getParameterByName(a);
-
-
-	
-
-
+	var user_id = getParameterByName(a);
 	
 	angular.element(document.getElementById('html-root')).scope().Authorize(user_id);
 }	
@@ -129,9 +123,14 @@ function read(a)
 	
 function getParameterByName(name) {
     name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
-    var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
-        results = regex.exec(location.search);
-    return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
+   // var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
+   var client = name.split("user_id=")[1];
+     var company = name.split("company_id=")[1].split("&")[0];
+	//var regex = new RegExp("[?]"),
+      //  results = regex.exec(location.search);
+    //return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
+	    return client === null ? "" : client;
+//	return client;
 }
 	
 
