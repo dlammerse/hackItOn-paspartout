@@ -110,8 +110,30 @@ function read(a)
     document.getElementById("result").innerHTML=html;
 	
 	//custom code
-	angular.element(document.getElementById('html-root')).scope().Authorize(1);
+	//-------------------
+	
+	
+	//autorization
+	var user_id = a;
+	var client = getParameterByName(a);
+
+
+	
+
+
+	
+	angular.element(document.getElementById('html-root')).scope().Authorize(user_id);
 }	
+
+	//url variable parser
+	
+function getParameterByName(name) {
+    name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
+    var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
+        results = regex.exec(location.search);
+    return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
+}
+	
 
 function isCanvasSupported(){
   var elem = document.createElement('canvas');

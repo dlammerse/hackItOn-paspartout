@@ -21,10 +21,21 @@ app.controller('BaseController', ['$scope', '$http', '$location', '$interval','$
 				if(data.access == 1)
 				{
 					$location.url('/green');
-				}
+					setTimeout('', 5000);
+
+
+						
+					$location.url('');	
+					}
+				
 				else
 				{
 					$location.url('/red');
+					setTimeout('', 5000);
+
+
+					$location.url('');	
+					
 				}
 			}).
 			error(function(data, status, headers, config)
